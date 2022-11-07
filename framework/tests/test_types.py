@@ -72,4 +72,3 @@ def test_tuple_negative():
 def test_set_negative():
     assert isinstance([1, 2, 3], set)
 
-

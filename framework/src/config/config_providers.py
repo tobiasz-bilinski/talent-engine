@@ -1,18 +1,17 @@
 import json
 import os
-from typing import Any
 
 
 class BaseProviderClass:
     @staticmethod
-    def get(item_name: str) -> Any:
+    def get(item_name):
         """Raises exception when called if not overwritten by a child class (i.e. not implemented)."""
         raise NotImplementedError("Not implemented")
 
 
 class OSConfigProvider(BaseProviderClass):
     @staticmethod
-    def get(item_name: str) -> Any:
+    def get(item_name):
         """Returns value of environment variable item_name or None if it doesn't exist."""
         value = os.getenv(item_name)
         return value
@@ -26,9 +25,9 @@ class JSONConfigProvider(BaseProviderClass):
             return json.load(json_file)
 
     @staticmethod
-    def get(item_name: str) -> Any:
-        """Returns value of item_name in JSON object."""
+    def get(item_name):
+        """Returns value of item_name in dictionary received from _read_config."""
         value = JSONConfigProvider._read_config(
-            "/Users/perfectson/Documents/Testing/Talent Engine/talent-engine-2.0/pytest_practice/envs_configs/dev.json"
+            "/Users/perfectson/Documents/Testing/Talent Engine/talent-engine-2.0/framework/envs_configs/dev.json"
         )
         return value[item_name]
