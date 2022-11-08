@@ -33,9 +33,12 @@ src/config - sets up configuration for the framework (connection with providers,
 
 - config_providers.py: contains classes for config providers (OSConfigProvider and JSONConfigProvider), as well as a BaseProviderClass, which raises an exception if 'get' method is not implemented in the child class. All config provider classes must inherit from BaseProviderClass.
   - OSConfigProvider: - 'get' returns the value of specified environment variable or None if it doesn't exist.
-  - JSONConfigProvider: - '\_read_config' returns a dictionary with the contents of JSON file with path 'config_path' - 'get' returns the value of specified item in dictionary received from '\_read_config'. Absolute path to JSON file needs to be passed in:
+  - JSONConfigProvider: - '\_read_config' returns a dictionary with the contents of JSON file with path 'config_path' - 'get' returns the value of specified item in dictionary received from '\_read_config'. The JSON file should be located in /envs_configs directory. **Absolute path** to JSON file needs to be passed in:
+  ```
     value = JSONConfigProvider.\_read_config(insert_absolute_path_to_json_file_here)
-    The JSON file should be located in /envs_configs directory.
-
+  ```
+    
+  
 src/data - contains test data  
-src/models - contains models
+src/models - contains models  
+src/providers - contains config providers
