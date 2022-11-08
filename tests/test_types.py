@@ -1,4 +1,5 @@
 import pytest
+from ..src.config import config
 
 
 def test_int_positive():
@@ -71,4 +72,3 @@ def test_tuple_negative():
 @pytest.mark.xfail
 def test_set_negative():
     assert isinstance([1, 2, 3], set)
-

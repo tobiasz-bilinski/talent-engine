@@ -8,9 +8,9 @@ class Config:
 
     def __init__(self, config_providers: list) -> None:
         """Initializes instance, creates config dictionary, registers items in config dictionary.
-        
+
         Args:
-            config_providers (list): List of providers that will be searched for items. 
+            config_providers (list): List of providers that will be searched for items.
             Providers will be searched in given order.
         """
         self.config_providers = config_providers
@@ -20,7 +20,7 @@ class Config:
 
     def __getattr__(self, item_name: str) -> Any:
         """Returns value of item_name stored in self.conf_dict, None if it's not present.
-        
+
         Args:
             item_name (str): Previously registered item to be returned.
 
@@ -35,7 +35,7 @@ class Config:
         return self.conf_dict[item_name]
 
     def _register(self, item_name: str) -> None:
-        """Searches for item_name within providers (in the given order). If it's 
+        """Searches for item_name within providers (in the given order). If it's
         present: adds item_name and its value to conf_dict.
 
         Args:
