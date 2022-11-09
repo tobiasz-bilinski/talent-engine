@@ -1,11 +1,6 @@
+from typing import Any
 from src.providers.os_config_provider import OSConfigProvider
 from src.providers.json_config_provider import JSONConfigProvider
-from typing import Any
-import sys
-
-sys.path.append(
-    "/Users/perfectson/Documents/Testing/Talent-Engine/talent-engine-2.0/"
-)  # FOR DEBUGGING
 
 
 class Config:
