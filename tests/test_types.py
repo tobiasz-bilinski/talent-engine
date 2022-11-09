@@ -1,5 +1,4 @@
 import pytest
-from ..src.config import config
 
 
 def test_int_positive():

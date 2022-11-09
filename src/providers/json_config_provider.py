@@ -1,6 +1,6 @@
 import json
 from typing import Any
-from base_provider import BaseProviderClass
+from src.providers.base_provider import BaseProviderClass
 
 
 class JSONConfigProvider(BaseProviderClass):
@@ -27,6 +27,6 @@ class JSONConfigProvider(BaseProviderClass):
             Value of item_name in dictionary returned by _read_config.
         """
         value = JSONConfigProvider._read_config(
-            "/Users/perfectson/Documents/Testing/Talent Engine/talent-engine-2.0/framework/envs_configs/dev.json"
+            "/Users/perfectson/Documents/Testing/Talent-Engine/talent-engine-2.0/envs_configs/dev.json"
         )
         return value[item_name]

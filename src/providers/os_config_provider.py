@@ -1,6 +1,6 @@
 import os
 from typing import Any
-from base_provider import BaseProviderClass
+from src.providers.base_provider import BaseProviderClass
 
 
 class OSConfigProvider(BaseProviderClass):

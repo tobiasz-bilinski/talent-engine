@@ -1,6 +1,12 @@
+import sys
+
+sys.path.append(
+    "/Users/perfectson/Documents/Testing/Talent-Engine/talent-engine-2.0/"
+)  # FOR DEBUGGING
+
 from typing import Any
-from json_config_provider import JSONConfigProvider
-from os_config_provider import OSConfigProvider
+from src.providers.json_config_provider import JSONConfigProvider
+from src.providers.os_config_provider import OSConfigProvider
 
 
 class Config:
@@ -15,8 +21,10 @@ class Config:
         """
         self.config_providers = config_providers
         self.conf_dict = {}
-        self._register("BASE_URL")
-        self._register("SQL_CONNECTION_STRING")
+
+        register_list = ["BASE_URL", "SQL_CONNECTION_STRING", "USERNAME"]
+        for item in register_list:
+            self._register(item)
 
     def __getattr__(self, item_name: str) -> Any:
         """Returns value of item_name stored in self.conf_dict, None if it's not present.
@@ -54,4 +62,3 @@ class Config:
 
 
 config = Config([JSONConfigProvider(), OSConfigProvider()])
-print(config.SQL_CONNECTION_STRING)
