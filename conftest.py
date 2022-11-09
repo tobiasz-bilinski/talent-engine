@@ -4,7 +4,7 @@ from src.models.user import User
 
 
 @pytest.fixture(scope="module")
-def user_fixture():
+def new_user_fixture():
     print("\nInitializing user")
     user = User(config.USERNAME, config.BIRTH_YEAR)
     yield user
