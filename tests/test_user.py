@@ -11,15 +11,15 @@ def test_new_user(new_user_fixture):
 
 
 def test_user_calc_age(new_user_fixture):
-    """Verify that calc_age function returns correct age."""
+    """Verify that calc_age method returns correct age."""
     assert new_user_fixture.calc_age() == datetime.date.today().year - \
-        new_user_fixture.birth_year
+        config.BIRTH_YEAR
 
     print("Age OK")
 
 
 def test_user_introduce(new_user_fixture):
-    """Verify introduce function returns correct introduction."""
+    """Verify introduce method returns correct introduction."""
     assert new_user_fixture.introduce(
     ) == f"Hello, my name is {config.USERNAME} and I'm {datetime.date.today().year - config.BIRTH_YEAR} years old."
 
