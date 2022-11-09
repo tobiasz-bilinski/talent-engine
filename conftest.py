@@ -1,19 +1,11 @@
 import pytest
-from src.config.config import config
-from src.models.user import User
-
-
-@pytest.fixture(scope="module")
-def new_user_fixture():
-    print("\nInitializing user")
-    user = User(config.USERNAME, config.BIRTH_YEAR)
-    yield user
-    print("\nRemoving user")
-    User.users.remove(user)
+import time
 
 
 @pytest.fixture(scope="session", autouse=True)
-def global_fixture():
-    print("-----Doing some things before all tests-----")
+def time_elapsed_fixture():
+    # Inspired by Kamil, it was just printing strings before and after yield but this is cooler :)
+    time_start = time.time()
     yield
-    print("-----Cleaning up after testing-----")
+    time_elapsed = time.time() - time_start
+    print(f"Time elapsed: {time_elapsed:.2f}s")
