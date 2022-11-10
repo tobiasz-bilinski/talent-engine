@@ -1,12 +1,6 @@
-import sys
-
-sys.path.append(
-    "/Users/perfectson/Documents/Testing/Talent-Engine/talent-engine-2.0/"
-)  # FOR DEBUGGING
-
 from typing import Any
-from src.providers.json_config_provider import JSONConfigProvider
 from src.providers.os_config_provider import OSConfigProvider
+from src.providers.json_config_provider import JSONConfigProvider
 
 
 class Config:
@@ -22,7 +16,8 @@ class Config:
         self.config_providers = config_providers
         self.conf_dict = {}
 
-        register_list = ["BASE_URL", "SQL_CONNECTION_STRING", "USERNAME"]
+        register_list = ["BASE_URL", "SQL_CONNECTION_STRING",
+                         "USERNAME", "BIRTH_YEAR"]
         for item in register_list:
             self._register(item)
 
