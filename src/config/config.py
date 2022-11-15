@@ -1,3 +1,5 @@
+"""Framework configuration module."""
+
 from typing import Any
 from src.providers.os_config_provider import OSConfigProvider
 from src.providers.json_config_provider import JSONConfigProvider
