@@ -1,4 +1,3 @@
-"""Practice tests for OpenWeather API."""
 from src.config.config import config
 
 
@@ -17,7 +16,6 @@ def test_current_weather_info_contains_data(weather_fixture_current):
 
 def test_city_in_correct_country_forecast(weather_fixture_forecast):
     """Test if the country code for given city is correct. (For forecast)"""
-
     country = weather_fixture_forecast["city"]["country"]
 
     assert country == config.WEATHER_CORRECT_COUNTRY
@@ -25,6 +23,7 @@ def test_city_in_correct_country_forecast(weather_fixture_forecast):
 
 def test_forecast_length_is_correct(weather_fixture_forecast):
     """Test if forecast length is equal to expected."""
+
     assert weather_fixture_forecast["cnt"] == config.EXPECTED_FORECAST_LENGTH
 
 
