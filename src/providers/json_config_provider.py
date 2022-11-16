@@ -29,4 +29,4 @@ class JSONConfigProvider(BaseProviderClass):
         value = JSONConfigProvider._read_config(
             "/home/tobiasz/talent-engine/envs_configs/dev.json"
         )
-        return value[item_name]
+        return value.get(item_name)

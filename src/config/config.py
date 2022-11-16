@@ -18,8 +18,12 @@ class Config:
         self.config_providers = config_providers
         self.conf_dict = {}
 
-        register_list = ["BASE_URL", "SQL_CONNECTION_STRING",
-                         "USERNAME", "BIRTH_YEAR"]
+        register_list = [
+            "BASE_URL", "SQL_CONNECTION_STRING",
+            "USERNAME", "BIRTH_YEAR", "WEATHER_API_KEY",
+            "WEATHER_CORRECT_CITY", "WEATHER_CORRECT_COUNTRY",
+            "WEATHER_WRONG_CITY", "EXPECTED_FORECAST_LENGTH"
+        ]
         for item in register_list:
             self._register(item)
 
