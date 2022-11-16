@@ -1,4 +1,8 @@
+import pytest
+from requests.exceptions import HTTPError
 from src.config.config import config
+from src.applications.WeatherApi import WeatherApi
+from src.applications.URLS import URLS
 
 
 def test_city_in_correct_country_current_weather(weather_fixture_current):
@@ -6,6 +10,17 @@ def test_city_in_correct_country_current_weather(weather_fixture_current):
     country = weather_fixture_current["sys"]["country"]
 
     assert country == config.WEATHER_CORRECT_COUNTRY
+
+
+def test_wrong_city_raises_exception_current_weather():
+    with pytest.raises(HTTPError) as excinfo:
+        weather_api = WeatherApi()
+        res = weather_api.get_weather_data(
+            URLS.weather, config.WEATHER_WRONG_CITY)
+
+    assert excinfo.type is HTTPError
+    # Is it fine if this status code is hardcoded?
+    assert "404" in excinfo.value.args[0]
 
 
 def test_current_weather_info_contains_data(weather_fixture_current):
