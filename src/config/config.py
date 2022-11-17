@@ -20,7 +20,7 @@ class Config:
 
         register_list = [
             "BASE_URL", "SQL_CONNECTION_STRING",
-            "USERNAME", "BIRTH_YEAR", "WEATHER_API_KEY",
+            "USERNAME", "WEATHER_API_KEY",
         ]
         for item in register_list:
             self._register(item)
