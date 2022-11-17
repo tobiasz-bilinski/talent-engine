@@ -2,9 +2,5 @@
   "BASE_URL": "https://api.openweathermap.org/data/2.5/",
   "SQL_CONNECTION_STRING": "sql string",
   "USERNAME": "Tobiasz",
-  "BIRTH_YEAR": 1990,
-  "WEATHER_CORRECT_CITY": "Warsaw",
-  "WEATHER_WRONG_CITY": "Nonexistent",
-  "WEATHER_CORRECT_COUNTRY": "PL",
-  "EXPECTED_FORECAST_LENGTH": 40
+  "BIRTH_YEAR": 1990
 }

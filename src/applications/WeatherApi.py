@@ -5,6 +5,10 @@ from src.config.config import config
 
 class WeatherApi:
     """Class for testing OpenWeather API."""
+    WEATHER_CORRECT_CITY = "Warsaw"
+    WEATHER_WRONG_CITY = "Nonexistent"
+    WEATHER_CORRECT_COUNTRY = "PL"
+    EXPECTED_FORECAST_LENGTH = 40
 
     def __init__(self) -> None:
         pass

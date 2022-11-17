@@ -19,7 +19,7 @@ def new_user_fixture():
 def weather_fixture_current():
     weather_api = WeatherApi()
     res = weather_api.get_weather_data(
-        URLS.weather, config.WEATHER_CORRECT_CITY)
+        URLS.weather, weather_api.WEATHER_CORRECT_CITY)
     yield res
     del res
 
@@ -28,7 +28,7 @@ def weather_fixture_current():
 def weather_fixture_forecast():
     weather_api = WeatherApi()
     res = weather_api.get_weather_data(
-        URLS.forecast, config.WEATHER_CORRECT_CITY)
+        URLS.forecast, weather_api.WEATHER_CORRECT_CITY)
     yield res
     del res
 
