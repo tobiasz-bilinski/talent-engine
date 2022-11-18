@@ -18,6 +18,7 @@ class TestData:
                                 ({"a": 1, "b": 2}, tuple),
                                 ([1, 2, 3], set)]
     # USER TESTS
+    USERNAME = "Tobiasz"
     BIRTH_YEAR = 1990
     # WEATHER API TESTS
     WEATHER_CORRECT_CITY = "Warsaw"

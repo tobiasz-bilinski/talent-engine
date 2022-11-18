@@ -27,6 +27,6 @@ class JSONConfigProvider(BaseProviderClass):
             Value of item_name in dictionary returned by _read_config.
         """
         value = JSONConfigProvider._read_config(
-            "/home/tobiasz/talent-engine/envs_configs/dev.json"
+            "/Users/perfectson/Documents/Testing/Talent-Engine/talent-engine-2.0/envs_configs/dev.json"
         )
         return value.get(item_name)
