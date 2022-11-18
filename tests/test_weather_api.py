@@ -1,6 +1,5 @@
 import pytest
 from requests.exceptions import HTTPError
-from src.config.config import config
 from src.data.test_data import TestData
 from src.data.URLS import URLS
 from src.applications.weather_api import WeatherApi

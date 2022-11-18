@@ -1,4 +1,4 @@
-import jsonschema
+from jsonschema.exceptions import ValidationError
 from jsonschema import validate
 
 
@@ -15,7 +15,7 @@ def validate_json(json_data: object, schema: dict) -> bool:
     """
     try:
         validate(instance=json_data, schema=schema)
-    except jsonschema.exceptions.ValidationError as error:
+    except ValidationError as error:
         print(error)
         return False
 
