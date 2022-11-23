@@ -7,8 +7,8 @@ from src.data.URLS import URLS
 class GitHubUI(BaseUIApp):
     """Stores helper functions for testing GitHub UI."""
 
-    def __init__(self) -> None:
-        super().__init__()
+    def __init__(self,) -> None:
+        super().__init__(config.BROWSER)
 
     def open_base_page(self) -> None:
         """Open base page."""

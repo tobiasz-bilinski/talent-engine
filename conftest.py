@@ -12,6 +12,8 @@ def github_ui_fixture():
     github_ui_app = GitHubUI()
     github_ui_app.open_base_page()
     yield github_ui_app
+    github_ui_app.driver.close()
+    github_ui_app.driver.quit()
 
 
 @pytest.fixture(scope="module")

@@ -1,6 +1,7 @@
 {
   "BASE_URL_API": "https://api.openweathermap.org/data/2.5/",
   "BASE_URL_UI": "https://www.github.com",
+  "BROWSER": "Chrome",
   "SHARED_USERNAME": "username",
   "SHARED_PASSWORD": "password"
 }

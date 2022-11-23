@@ -24,6 +24,7 @@ class Config:
             "WEATHER_API_KEY",
             "SHARED_USERNAME",
             "SHARED_PASSWORD",
+            "BROWSER",
         ]
         for item in register_list:
             self._register(item)
