@@ -4,7 +4,6 @@ from src.data.test_data import TestData
 from src.data.URLS import URLS
 from src.applications.weather_api import WeatherApi
 from src.data.json_schemas.json_schema_current_weather import schema_current_weather
-from helpers import validate_json
 
 
 def test_city_in_correct_country_current_weather(current_weather):
@@ -39,4 +38,4 @@ def test_forecast_length_is_correct(forecast):
 def test_validate_json_schema_current_weather(current_weather):
     """Test if JSON schema in response is correct."""
 
-    assert validate_json(current_weather, schema_current_weather)
+    assert WeatherApi.validate_json(current_weather, schema_current_weather)

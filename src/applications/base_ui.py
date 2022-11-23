@@ -1,30 +1,54 @@
-import time
+from typing import Any
 from selenium import webdriver
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.common.by import By
-from selenium.common.exceptions import StaleElementReferenceException
 
 
 class BaseUIApp:
+    """Stores general helper functions for testing UI with Selenium."""
 
-    def __init__(self):
+    def __init__(self) -> None:
+        """Initialize service object and driver, tell driver to implicitly wait for elements etc."""
         service_obj = Service(ChromeDriverManager().install())
         self.driver = webdriver.Chrome(service=service_obj)
         self.driver.implicitly_wait(5)
 
-    def get_element(self, locator_type, locator_value):
-        return self.driver.find_element(locator_type, locator_value)
+    def get_element(self, locator: tuple) -> Any:
+        """Get element with given locator.
+        
+        Args:
+            locator (tuple): Stored in the page model (e.g. LoginPage.username_field). 
+        
+        Returns:
+            Specified element.
 
-    def click(self, locator_type, locator_value):
-        el = self.get_element(locator_type, locator_value)
+        Raises:
+            NoSuchElementException - if element can't be found.
+        """
+
+        return self.driver.find_element(*locator)
+
+    def click(self, locator: tuple) -> None:
+        """Clicks on the element with specified locator.
+        
+        Args:
+            locator (tuple): Stored in the page model (e.g. LoginPage.login_button).
+        """
+        el = self.get_element(locator)
         el.click()
 
-    def enter_text(self, locator_type, locator_value, text):
-        el = self.get_element(locator_type, locator_value)
+    def enter_text(self, locator: tuple, text: str) -> None:
+        """Sends specified text to element with given locator.
+        
+        Args:
+            locator (tuple): Stored in the page model (e.g. LoginPage.username_field).
+            text (str): Text to be sent to the element.
+        
+        """
+        el = self.get_element(locator)
         el.send_keys(text)
 
-    def open_page(self, url):
+    def open_page(self, url: str) -> None:
+        """Opens page with specified url."""
         self.driver.get(url)
         self.driver.maximize_window()

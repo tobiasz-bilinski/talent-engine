@@ -19,8 +19,11 @@ class Config:
         self.conf_dict = {}
 
         register_list = [
-            "BASE_URL_API", "BASE_URL_UI",
-            "USERNAME", "WEATHER_API_KEY", "SHARED_USERNAME", "SHARED_PASSWORD"
+            "BASE_URL_API",
+            "BASE_URL_UI",
+            "WEATHER_API_KEY",
+            "SHARED_USERNAME",
+            "SHARED_PASSWORD",
         ]
         for item in register_list:
             self._register(item)
