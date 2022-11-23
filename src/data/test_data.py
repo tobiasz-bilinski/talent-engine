@@ -25,3 +25,5 @@ class TestData:
     WEATHER_WRONG_CITY = "Nonexistent"
     WEATHER_CORRECT_COUNTRY = "PL"
     EXPECTED_FORECAST_LENGTH = 40
+    # GITHUB UI TESTS
+    EXPECTED_LOGIN_PAGE_TITLE = "Sign in to GitHub · GitHub"

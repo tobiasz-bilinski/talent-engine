@@ -3,7 +3,7 @@ from requests.exceptions import HTTPError
 from src.data.test_data import TestData
 from src.data.URLS import URLS
 from src.applications.weather_api import WeatherApi
-from src.data.json_schemas.json_schema_current import schema_current_weather
+from src.data.json_schemas.json_schema_current_weather import schema_current_weather
 from helpers import validate_json
 
 

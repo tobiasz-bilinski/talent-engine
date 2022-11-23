@@ -4,6 +4,15 @@ from src.models.user import User
 from src.applications.weather_api import WeatherApi
 from src.data.URLS import URLS
 from src.data.test_data import TestData
+from src.applications.github_ui import GitHubUI
+
+
+@pytest.fixture(scope="function")
+def github_ui_fixture():
+    github_ui_app = GitHubUI()
+    github_ui_app.open_base_page()
+
+    yield github_ui_app
 
 
 @pytest.fixture(scope="module")

@@ -24,7 +24,7 @@ class WeatherApi:
             dict: Dictionary with weather data.
         """
 
-        url = self._form_url(config.BASE_URL_WEATHER_API, current_or_forecast)
+        url = self._form_url(config.BASE_URL_API, current_or_forecast)
         params = {"q": city_name, "appid": config.WEATHER_API_KEY}
 
         r = requests.get(url=url, params=params)
