@@ -29,7 +29,8 @@ def new_user_fixture():
 def current_weather():
     """Yields JSON file for current weather data, converted to dict."""
     weather_api = WeatherApi()
-    res = weather_api.get_weather_data(URLS.weather, TestData.WEATHER_CORRECT_CITY)
+    res = weather_api.get_weather_data(
+        URLS.weather, TestData.WEATHER_CORRECT_CITY)
     yield res
     del res
 
@@ -38,12 +39,13 @@ def current_weather():
 def forecast():
     """Yields JSON file for weather forecast data, converted to dict."""
     weather_api = WeatherApi()
-    res = weather_api.get_weather_data(URLS.forecast, TestData.WEATHER_CORRECT_CITY)
+    res = weather_api.get_weather_data(
+        URLS.forecast, TestData.WEATHER_CORRECT_CITY)
     yield res
     del res
 
 
-@pytest.fixture(scope="session", autouse=True)
+@ pytest.fixture(scope="session", autouse=True)
 def time_elapsed_fixture():
     """Prints out the time it took to run the tests."""
     time_start = time.time()
