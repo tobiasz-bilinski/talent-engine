@@ -13,6 +13,14 @@ class BrowserProvider:
 
     @classmethod
     def get_driver(cls, browser_name: str):
+        """Return driver object from browser class.
+
+        Args:
+            browser_name (str): Browser name ("chrome", "firefox", "edge"...)
+
+        Returns:
+            Driver for the specified class.
+        """
         browser_class = cls.MAPPER.get(browser_name)
         if browser_class is None:
             print("Error - Browser not registered.")
