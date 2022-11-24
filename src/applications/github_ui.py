@@ -7,8 +7,8 @@ from src.data.URLS import URLS
 class GitHubUI(BaseUIApp):
     """Stores helper functions for testing GitHub UI."""
 
-    def __init__(self,) -> None:
-        super().__init__(config.BROWSER)
+    def __init__(self, driver) -> None:
+        super().__init__(driver)
 
     def open_base_page(self) -> None:
         """Open base page."""
@@ -20,7 +20,7 @@ class GitHubUI(BaseUIApp):
 
     def login(self, username: str, password: str) -> None:
         """Fill out username and password fields, click login button.
-        
+
         Args:
             username (str): Shared username stored in config.
             password (str): Shared password stored in config.
@@ -35,6 +35,6 @@ class GitHubUI(BaseUIApp):
         """Empty for now, because we're not logging in yet."""
         pass
 
-    def check_title(self) -> str:
+    def get_title(self) -> str:
         """Return page title."""
         return self.driver.title

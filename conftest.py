@@ -5,15 +5,19 @@ from src.applications.weather_api import WeatherApi
 from src.data.URLS import URLS
 from src.data.test_data import TestData
 from src.applications.github_ui import GitHubUI
+from src.providers.browsers.browsers_provider import BrowserProvider
 
 
 @pytest.fixture(scope="function")
-def github_ui_fixture():
-    github_ui_app = GitHubUI()
+def github_ui_fixture(request):
+    """Sets up the driver and browser (if specified in CLI), opens base page."""
+    browser = request.config.getoption("--browser")
+    driver = BrowserProvider.get_driver(browser)
+    github_ui_app = GitHubUI(driver)
     github_ui_app.open_base_page()
     yield github_ui_app
-    github_ui_app.driver.close()
-    github_ui_app.driver.quit()
+    github_ui_app.close_window()
+    github_ui_app.quit_driver()
 
 
 @pytest.fixture(scope="module")
@@ -30,7 +34,8 @@ def new_user_fixture():
 def current_weather():
     """Yields JSON file for current weather data, converted to dict."""
     weather_api = WeatherApi()
-    res = weather_api.get_weather_data(URLS.weather, TestData.WEATHER_CORRECT_CITY)
+    res = weather_api.get_weather_data(
+        URLS.weather, TestData.WEATHER_CORRECT_CITY)
     yield res
     del res
 
@@ -39,7 +44,8 @@ def current_weather():
 def forecast():
     """Yields JSON file for weather forecast data, converted to dict."""
     weather_api = WeatherApi()
-    res = weather_api.get_weather_data(URLS.forecast, TestData.WEATHER_CORRECT_CITY)
+    res = weather_api.get_weather_data(
+        URLS.forecast, TestData.WEATHER_CORRECT_CITY)
     yield res
     del res
 
@@ -51,3 +57,10 @@ def time_elapsed_fixture():
     yield
     time_elapsed = time.time() - time_start
     print(f"Time elapsed: {time_elapsed:.2f}s")
+
+
+def pytest_addoption(parser):
+    parser.addoption("--browser", action="store",
+                     choices=["chrome", "firefox", "edge"],
+                     default="chrome",
+                     help="Choose a browser to execute the tests with.")

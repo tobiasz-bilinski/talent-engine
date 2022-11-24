@@ -24,7 +24,6 @@ class Config:
             "WEATHER_API_KEY",
             "SHARED_USERNAME",
             "SHARED_PASSWORD",
-            "BROWSER",
         ]
         for item in register_list:
             self._register(item)
@@ -64,4 +63,4 @@ class Config:
         raise KeyError(f"{item_name} name not found in config providers.")
 
 
-config = Config([JSONConfigProvider(), OSConfigProvider()])
+config = Config([OSConfigProvider(), JSONConfigProvider()])
