@@ -2,9 +2,6 @@ from typing import Any
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from webdriver_manager.firefox import GeckoDriverManager
-from webdriver_manager.microsoft import EdgeChromiumDriverManager
-
 
 class BaseUIApp:
     """Stores general helper functions for testing UI with Selenium."""
