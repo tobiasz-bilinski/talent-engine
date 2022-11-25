@@ -18,8 +18,13 @@ class Config:
         self.config_providers = config_providers
         self.conf_dict = {}
 
-        register_list = ["BASE_URL", "SQL_CONNECTION_STRING",
-                         "USERNAME", "BIRTH_YEAR"]
+        register_list = [
+            "BASE_URL_API",
+            "BASE_URL_UI",
+            "WEATHER_API_KEY",
+            "SHARED_USERNAME",
+            "SHARED_PASSWORD",
+        ]
         for item in register_list:
             self._register(item)
 
@@ -58,4 +63,4 @@ class Config:
         raise KeyError(f"{item_name} name not found in config providers.")
 
 
-config = Config([JSONConfigProvider(), OSConfigProvider()])
+config = Config([OSConfigProvider(), JSONConfigProvider()])

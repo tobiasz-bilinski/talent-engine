@@ -17,7 +17,8 @@ class JSONConfigProvider(BaseProviderClass):
         with open(config_path) as json_file:
             return json.load(json_file)
 
-    def __getitem__(self, item_name: str) -> Any:
+    @staticmethod
+    def __getitem__(item_name: str) -> Any:
         """Returns value of item_name in dictionary returned by _read_config.
 
         Args:
@@ -29,4 +30,4 @@ class JSONConfigProvider(BaseProviderClass):
         value = JSONConfigProvider._read_config(
             "/home/tobiasz/talent-engine/envs_configs/dev.json"
         )
-        return value[item_name]
+        return value.get(item_name)
