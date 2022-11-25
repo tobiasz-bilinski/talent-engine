@@ -23,6 +23,7 @@ class BrowserProvider:
         """
         browser_class = cls.MAPPER.get(browser_name)
         if browser_class is None:
+            # TODO: Logger instead of print
             print("Error - Browser not registered.")
 
         return browser_class.get_driver()

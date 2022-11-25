@@ -17,7 +17,8 @@ class JSONConfigProvider(BaseProviderClass):
         with open(config_path) as json_file:
             return json.load(json_file)
 
-    def __getitem__(self, item_name: str) -> Any:
+    @staticmethod
+    def __getitem__(item_name: str) -> Any:
         """Returns value of item_name in dictionary returned by _read_config.
 
         Args:
