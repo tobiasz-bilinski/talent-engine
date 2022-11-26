@@ -49,9 +49,9 @@ All config data **must** be registered using the _'\_register'_ method before it
 **/src/models** - contains models  
 **/src/providers** - contains providers for config and browsers
 
-- base*provider.py: contains a BaseProviderClass, which raises an exception if *'\_\_getitem\_\_'\_ method is not implemented in the child class. **All config provider classes must inherit from BaseProviderClass.**
-- os*config_provider.py: - contains an OSConfigProvider class. method *'\_\_getitem\_\_'\_ returns the value of specified environment variable (or None if it doesn't exist).
-- json*config_provider.py: - contains a JSONConfigProvider class. method *'\_read*config'* returns a dictionary with the contents of JSON file with path 'config*path' - *'\_\_getitem\_\_'_ returns the value of specified item in dictionary received from _'\_read*config'*. The JSON file should be located in the /envs_configs directory. **Absolute path** to JSON file needs to be passed in:
+- base_provider.py: contains a BaseProviderClass, which raises an exception if _'\_\_getitem\_\_'_ method is not implemented in the child class. **All config provider classes must inherit from BaseProviderClass.**
+- os_config_provider.py: - contains an OSConfigProvider class. method _'\_\_getitem\_\_'_ returns the value of specified environment variable (or None if it doesn't exist).
+- json_config_provider.py: - contains a JSONConfigProvider class. method _'\_read_config'_ returns a dictionary with the contents of JSON file with path 'config_path' - _'\_\_getitem\_\_'_ returns the value of specified item in dictionary received from _'\_read_config'_. The JSON file should be located in the /envs_configs directory. **Absolute path** to JSON file needs to be passed in:
 
 ```
 
