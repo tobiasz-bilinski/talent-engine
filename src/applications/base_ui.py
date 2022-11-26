@@ -22,7 +22,8 @@ class BaseUIApp:
             NoSuchElementException - if element can't be found.
         """
         element = WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located(locator))
+            EC.presence_of_element_located(locator)
+        )
         return element
 
     def click(self, locator: tuple) -> None:
@@ -49,6 +50,10 @@ class BaseUIApp:
         """Opens page with specified url."""
         self.driver.get(url)
         self.driver.maximize_window()
+
+    def get_title(self) -> str:
+        """Return page title."""
+        return self.driver.title
 
     def close_window(self) -> None:
         self.driver.close()
