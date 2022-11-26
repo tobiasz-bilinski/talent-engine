@@ -5,7 +5,11 @@ from src.config.config import config
 class ForgotPasswordPage:
     PAGE_URL = "/password_reset"
     email_field = (By.ID, "email_field")
+<<<<<<< HEAD
     verification_button = (By.ID, "home_children_button")
+=======
+    verification_button = (By.CSS_SELECTOR, "#home_children_button")
+>>>>>>> dc1e760 (Added page objects for login and forgot password pages.)
     submit_button = (By.NAME, "commit")
 
     def __init__(self, app):
@@ -21,8 +25,11 @@ class ForgotPasswordPage:
             email (str): Shared email stored in config.
 
         """
+<<<<<<< HEAD
         # Just an example, because it's a captcha so it doesn't make much sense
         # Also I'm not sure how to make Selenium wait for the button to appear
+=======
+>>>>>>> dc1e760 (Added page objects for login and forgot password pages.)
         self.app.enter_text(self.email_field, email)
         self.app.click(self.verification_button)
         self.app.click(self.submit_button)
