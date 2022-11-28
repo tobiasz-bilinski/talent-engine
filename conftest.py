@@ -9,7 +9,23 @@ from src.providers.browsers.browsers_provider import BrowserProvider
 
 
 @pytest.fixture(scope="function")
-def github_ui_fixture(request):
+def github_enterprise(github_ui):
+    """Open Enterprise Contact page, yield enterprise_contact_page object."""
+    enterprise_contact_page = github_ui.enterprise_contact_page
+    enterprise_contact_page.open_contact_page()
+    yield enterprise_contact_page
+
+
+@pytest.fixture(scope="function")
+def github_about(github_ui):
+    """Open About page, yield about_page object."""
+    about_page = github_ui.about_page
+    about_page.open_about_page()
+    yield about_page
+
+
+@pytest.fixture(scope="function")
+def github_ui(request):
     """Sets up the driver and browser (if specified in CLI), opens base page."""
     browser = request.config.getoption("--browser")
     driver = BrowserProvider.get_driver(browser)
