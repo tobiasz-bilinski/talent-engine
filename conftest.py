@@ -33,7 +33,7 @@ def github_ui(request):
     github_ui_app.open_base_page()
     yield github_ui_app
     github_ui_app.close_window()
-    github_ui_app.quit_driver()
+    # github_ui_app.quit_driver()
 
 
 @pytest.fixture(scope="module")
