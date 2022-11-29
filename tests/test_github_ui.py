@@ -1,4 +1,3 @@
-import pytest
 from src.config.config import config
 from src.data.test_data import TestData
 
@@ -6,6 +5,7 @@ from src.data.test_data import TestData
 def test_first_login_test(github_ui):
     github_ui.login_page.open_login_page()
     github_ui.login(config.SHARED_USERNAME, config.SHARED_PASSWORD)
+    # TODO: check_title() method returning boolean
     assert github_ui.get_title() == TestData.EXPECTED_LOGIN_PAGE_TITLE
 
 
