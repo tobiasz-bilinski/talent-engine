@@ -12,6 +12,5 @@ class ChromeBrowser(BaseBrowser):
         """Return the driver for Chrome."""
         options = Options()
         options.add_argument("--headless")
-        options.add_argument("--disable-gpu")
         service_obj = Service(ChromeDriverManager().install())
         return webdriver.Chrome(service=service_obj, options=options)

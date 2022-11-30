@@ -12,6 +12,5 @@ class EdgeBrowser(BaseBrowser):
         """Return the driver for Edge."""
         options = Options()
         options.add_argument("--headless")
-        options.add_argument("--disable-gpu")
         service_obj = Service(EdgeChromiumDriverManager().install())
         return webdriver.Edge(service=service_obj, options=options)
