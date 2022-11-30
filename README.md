@@ -21,8 +21,11 @@ To run the tests run `pytest` from the root folder.
 To run the test using a specific (supported) browser:
 
 ```
-pytest --browser <browser name: chrome, firefox, edge>
+pytest --browser <browser name: chrome, firefox, edge, remote_chrome, remote_firefox, remote_edge>
 ```
+
+## Using Docker and Selenium Grid
+(TODO)
 
 ## Structure of the framework
 
@@ -33,7 +36,7 @@ pytest --browser <browser name: chrome, firefox, edge>
 **/src/applications** - stores classes for applications  
 **/src/config** - sets up configuration for the framework (connection with providers, location of test data etc.).
 
-- config.py: contains Config class. When instantiated, it creates the config dictionary (_'conf_dict'_) and using the _'\_register'_ method receives the data from the providers and stores it in the config dictionary (raising ValueError if the item is not present in any of the providers). The _'\_\_getattr\_\_'_ method retrieves the data stored in config dictionary. When creating an instance of the Config class, config providers must be passed in as a list in a hierarchical order:
+- config.py: contains Config class. When instantiated, it creates the config dictionary (_'conf_dict'_) and using the _\'_register'_ method receives the data from the providers and stores it in the config dictionary (raising ValueError if the item is not present in any of the providers). The _'\_\_getattr\_\_'_ method retrieves the data stored in config dictionary. When creating an instance of the Config class, config providers must be passed in as a list in a hierarchical order:
 
 ```
 
@@ -55,7 +58,7 @@ All config data **must** be registered using the _'\_register'_ method before it
 
 ```
 
-value = JSONConfigProvider.\_read_config(insert_absolute_path_to_json_file_here)
+value = JSONConfigProvider.\_read_config(path_to_json_file_here)
 
 ```
 
