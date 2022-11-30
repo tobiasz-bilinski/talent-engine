@@ -25,6 +25,7 @@ class Config:
             "SHARED_USERNAME",
             "SHARED_PASSWORD",
             "SHARED_EMAIL",
+            "SELENIUM_GRID_URL",
         ]
         for item in register_list:
             self._register(item)
