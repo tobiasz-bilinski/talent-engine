@@ -10,4 +10,4 @@ class ChromeBrowser(BaseBrowser):
     def get_driver():
         """Return the driver for Chrome."""
         service_obj = Service(ChromeDriverManager().install())
-        return webdriver.Chrome(service=service_obj)
+        return webdriver.Edge(service=service_obj)

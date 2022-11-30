@@ -1,6 +1,8 @@
 {
   "BASE_URL_API": "https://api.openweathermap.org/data/2.5/",
   "BASE_URL_UI": "https://www.github.com",
+  "SELENIUM_GRID_URL": "http://0.0.0.0:4444/wd/hub",
   "SHARED_USERNAME": "username",
-  "SHARED_PASSWORD": "password"
+  "SHARED_PASSWORD": "password",
+  "SHARED_EMAIL": "test@gmail.com"
 }

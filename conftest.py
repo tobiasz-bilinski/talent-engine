@@ -9,7 +9,23 @@ from src.providers.browsers.browsers_provider import BrowserProvider
 
 
 @pytest.fixture(scope="function")
-def github_ui_fixture(request):
+def github_enterprise(github_ui):
+    """Open Enterprise Contact page, yield enterprise_contact_page object."""
+    enterprise_contact_page = github_ui.enterprise_contact_page
+    enterprise_contact_page.open_contact_page()
+    yield enterprise_contact_page
+
+
+@pytest.fixture(scope="function")
+def github_about(github_ui):
+    """Open About page, yield about_page object."""
+    about_page = github_ui.about_page
+    about_page.open_about_page()
+    yield about_page
+
+
+@pytest.fixture(scope="function")
+def github_ui(request):
     """Sets up the driver and browser (if specified in CLI), opens base page."""
     browser = request.config.getoption("--browser")
     driver = BrowserProvider.get_driver(browser)
@@ -34,8 +50,7 @@ def new_user_fixture():
 def current_weather():
     """Yields JSON file for current weather data, converted to dict."""
     weather_api = WeatherApi()
-    res = weather_api.get_weather_data(
-        URLS.weather, TestData.WEATHER_CORRECT_CITY)
+    res = weather_api.get_weather_data(URLS.weather, TestData.WEATHER_CORRECT_CITY)
     yield res
     del res
 
@@ -44,8 +59,7 @@ def current_weather():
 def forecast():
     """Yields JSON file for weather forecast data, converted to dict."""
     weather_api = WeatherApi()
-    res = weather_api.get_weather_data(
-        URLS.forecast, TestData.WEATHER_CORRECT_CITY)
+    res = weather_api.get_weather_data(URLS.forecast, TestData.WEATHER_CORRECT_CITY)
     yield res
     del res
 
@@ -60,7 +74,10 @@ def time_elapsed_fixture():
 
 
 def pytest_addoption(parser):
-    parser.addoption("--browser", action="store",
-                     choices=["chrome", "firefox", "edge"],
-                     default="chrome",
-                     help="Choose a browser to execute the tests with.")
+    parser.addoption(
+        "--browser",
+        action="store",
+        choices=["chrome", "firefox", "edge", "remote_chrome", "remote_firefox", "remote_edge"],
+        default="chrome",
+        help="Choose a browser to execute the tests with.",
+    )

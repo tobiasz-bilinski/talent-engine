@@ -24,6 +24,8 @@ class Config:
             "WEATHER_API_KEY",
             "SHARED_USERNAME",
             "SHARED_PASSWORD",
+            "SHARED_EMAIL",
+            "SELENIUM_GRID_URL",
         ]
         for item in register_list:
             self._register(item)
