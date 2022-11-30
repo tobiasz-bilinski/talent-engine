@@ -33,7 +33,7 @@ def github_ui(request):
     github_ui_app.open_base_page()
     yield github_ui_app
     github_ui_app.close_window()
-    # github_ui_app.quit_driver()
+    github_ui_app.quit_driver()
 
 
 @pytest.fixture(scope="module")
@@ -50,8 +50,7 @@ def new_user_fixture():
 def current_weather():
     """Yields JSON file for current weather data, converted to dict."""
     weather_api = WeatherApi()
-    res = weather_api.get_weather_data(
-        URLS.weather, TestData.WEATHER_CORRECT_CITY)
+    res = weather_api.get_weather_data(URLS.weather, TestData.WEATHER_CORRECT_CITY)
     yield res
     del res
 
@@ -60,8 +59,7 @@ def current_weather():
 def forecast():
     """Yields JSON file for weather forecast data, converted to dict."""
     weather_api = WeatherApi()
-    res = weather_api.get_weather_data(
-        URLS.forecast, TestData.WEATHER_CORRECT_CITY)
+    res = weather_api.get_weather_data(URLS.forecast, TestData.WEATHER_CORRECT_CITY)
     yield res
     del res
 
@@ -76,7 +74,10 @@ def time_elapsed_fixture():
 
 
 def pytest_addoption(parser):
-    parser.addoption("--browser", action="store",
-                     choices=["chrome", "firefox", "edge"],
-                     default="chrome",
-                     help="Choose a browser to execute the tests with.")
+    parser.addoption(
+        "--browser",
+        action="store",
+        choices=["chrome", "firefox", "edge", "remote_chrome", "remote_firefox", "remote_edge"],
+        default="chrome",
+        help="Choose a browser to execute the tests with.",
+    )

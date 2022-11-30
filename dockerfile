@@ -1,13 +1,12 @@
 FROM python:3.10
 
 WORKDIR /talent-engine/
-COPY . .
-
-ENV WEATHER_API_KEY=b8ef3491d7177de6eec81cbe4d0f2bb2
-
+COPY requirements.txt .
 RUN pip3 install -r requirements.txt
+
+COPY . .
 
 ENTRYPOINT [ "pytest" ]
 
-CMD [ ".", "-lvs" ]
+CMD [ "-lvs", "--browser", "remote_chrome" ]
 

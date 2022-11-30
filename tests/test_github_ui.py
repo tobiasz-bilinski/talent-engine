@@ -10,11 +10,13 @@ def test_first_login_test(github_ui):
 
 
 def test_enterprise_contact_form_correct_data(github_enterprise):
-    github_enterprise.fill_contact_form(TestData.ENTERPRISE_CONTACT_NAME_CORRECT,
-                                        TestData.ENTERPRISE_CONTACT_COMPANY_CORRECT,
-                                        TestData.ENTERPRISE_CONTACT_EMAIL_CORRECT,
-                                        TestData.ENTERPRISE_CONTACT_PHONE_CORRECT,
-                                        TestData.ENTERPRISE_CONTACT_MESSAGE_CORRECT)
+    github_enterprise.fill_contact_form(
+        TestData.ENTERPRISE_CONTACT_NAME_CORRECT,
+        TestData.ENTERPRISE_CONTACT_COMPANY_CORRECT,
+        TestData.ENTERPRISE_CONTACT_EMAIL_CORRECT,
+        TestData.ENTERPRISE_CONTACT_PHONE_CORRECT,
+        TestData.ENTERPRISE_CONTACT_MESSAGE_CORRECT,
+    )
     github_enterprise.click_mailing_list_checkbox()
     # Can't finish because of captcha
 
