@@ -12,6 +12,5 @@ class FirefoxBrowser(BaseBrowser):
         """Return the driver for Firefox."""
         options = Options()
         options.add_argument("--headless")
-        options.add_argument("--disable-gpu")
         service_obj = Service(GeckoDriverManager().install())
         return webdriver.Firefox(service=service_obj, options=options)
