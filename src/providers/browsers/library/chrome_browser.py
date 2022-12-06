@@ -6,8 +6,9 @@ from src.providers.browsers.library.base_browser import BaseBrowser
 
 class ChromeBrowser(BaseBrowser):
     """Class for Chrome."""
+
     @staticmethod
     def get_driver():
         """Return the driver for Chrome."""
         service_obj = Service(ChromeDriverManager().install())
-        return webdriver.Edge(service=service_obj)
+        return webdriver.Chrome(service=service_obj)
