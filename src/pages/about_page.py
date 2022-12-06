@@ -17,11 +17,12 @@ class AboutPage:
         """Open the About page."""
         self.app.open_page(config.BASE_URL_UI + self.PAGE_URL)
 
-    # TODO: @property on all hrefs
-    def get_twitter_href(self):
+    @property
+    def twitter_href(self):
         """Return href from Twitter button element."""
-        return self.app.get_element(self.twitter_button).get_attribute('href')
+        return self.app.get_element(self.twitter_button).get_attribute("href")
 
-    def get_blog_href(self):
+    @property
+    def blog_href(self):
         """Return href from Blog element."""
-        return self.app.get_element(self.blog).get_attribute('href')
+        return self.app.get_element(self.blog).get_attribute("href")

@@ -37,7 +37,6 @@ services:
       - "4442:4442"
       - "4443:4443"
       - "4444:4444"
-
   automated-tests:
     container_name: te2
     build: .

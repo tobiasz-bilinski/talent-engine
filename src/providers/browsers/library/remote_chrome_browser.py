@@ -5,7 +5,7 @@ from src.config.config import config
 
 
 class RemoteChromeBrowser(BaseBrowser):
-    """Class for Chrome."""
+    """Class for remote Chrome."""
 
     @staticmethod
     def get_driver():
