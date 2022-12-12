@@ -1,6 +1,5 @@
 from src.config.config import config
 from src.data.test_data import TestData
-import time
 
 
 def test_first_login_test(github_ui):
@@ -23,7 +22,6 @@ def test_enterprise_contact_form_correct_data(github_enterprise):
 
 
 def test_about_page_twitter_link(github_about):
-    # What's better - specific methods for different links or a general method 'get_element_href(locator)' in BaseUIApp?
     twitter_link = github_about.twitter_href
     assert twitter_link == TestData.GITHUB_TWITTER_LINK
 
